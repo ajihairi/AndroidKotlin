@@ -24,10 +24,14 @@ class RhombusActivity : AppCompatActivity() {
             main(numb.toInt())
         }
         reset_btn.setOnClickListener {
-            text_view_id.text = ""
-            input_text_id.setText("")
-            reset_btn.visibility = View.GONE
+            buttonSet()
         }
+        reset_btn.visibility = View.GONE
+    }
+
+    private fun buttonSet() {
+        text_view_id.text = ""
+        input_text_id.setText("")
         reset_btn.visibility = View.GONE
     }
 
