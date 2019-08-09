@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_rhombus.*
 import java.lang.StringBuilder
 
@@ -21,7 +22,16 @@ class RhombusActivity : AppCompatActivity() {
         convert_btn.setOnClickListener {
             val numb = input_text_id.text.toString()
             reset_btn.visibility = View.VISIBLE
-            main(numb.toInt())
+
+
+            var numbered: Int = numb.toInt()
+            if (numbered < 5 || numbered > 100 ) {
+                Toast.makeText(applicationContext, "number should be 5 - 100", Toast.LENGTH_SHORT).show()
+                reset_btn.visibility = View.GONE
+                input_text_id.setText("")
+            } else {
+                main(numbered)
+            }
         }
         reset_btn.setOnClickListener {
             buttonSet()
